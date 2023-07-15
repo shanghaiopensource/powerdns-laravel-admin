@@ -14,6 +14,15 @@ class ServerController extends BaseController
      * 
      *  */
     public function index(Request $request) {
-        $url = config("pdns.");
+        $url = config("pdns.api_url");
+        $key = config("pdns.api_key");
+
+        $client = new GuzzleHttp\Client();
+
+        $res = $client->request('GET', $url."/api/v1/servers", [
+            'X-API-Key' => $key
+        ]);
+
+        var_dump($res);
     }
 }
