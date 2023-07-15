@@ -174,6 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //针对与API文档内容处理
+        L5Swagger\L5SwaggerServiceProvider::class,
 
     ],
 
