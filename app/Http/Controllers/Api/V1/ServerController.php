@@ -13,7 +13,7 @@ class ServerController extends BaseController
      * @api {get} /server 获取服务器列表
      * 
      *  */
-    public function lists(Request $request) {
+    public function index(Request $request) {
         $url = config("pdns.");
     }
 }

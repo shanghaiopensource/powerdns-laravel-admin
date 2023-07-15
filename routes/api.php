@@ -67,6 +67,12 @@ $api->version('v1', [
         'uses' => 'CommentController@index',
     ]);
 
+    // Server API
+    $api->get("/servers", [
+        'as' => 'get.servers.index',
+        'uses' => 'ServerController@index',
+    ]);
+
     /*
      * 对于authorizations 并没有保存在数据库，所以并没有id，那么对于
      * 刷新（put) 和 删除（delete) 我没有想到更好的命名方式
