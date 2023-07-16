@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1478bd0877e4c9635b26cd10d2b0cb68",
+    "content-hash": "f6a94383c06383231c91e961b6c53599",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1225,6 +1225,69 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
+        },
+        {
+            "name": "exonet/powerdns-php",
+            "version": "v4.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/exonet/powerdns-php.git",
+                "reference": "d94b4f7e18dd212dcfae064b52a449e74bd4f85b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/exonet/powerdns-php/zipball/d94b4f7e18dd212dcfae064b52a449e74bd4f85b",
+                "reference": "d94b4f7e18dd212dcfae064b52a449e74bd4f85b",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.2",
+                "php": "^7.3|^8.0",
+                "psr/log": "^1.0|^2.0|^3.0"
+            },
+            "require-dev": {
+                "dms/phpunit-arraysubset-asserts": "^0.2.1 || ^0.4.0",
+                "mockery/mockery": "^1.2",
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Exonet\\Powerdns\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Exonet",
+                    "email": "development@exonet.nl",
+                    "homepage": "https://exonet.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PowerDNS API PHP Client",
+            "homepage": "https://github.com/exonet/powerdns-php",
+            "keywords": [
+                "exonet",
+                "powerdns",
+                "powerdns-api",
+                "powerdns-php"
+            ],
+            "support": {
+                "issues": "https://github.com/exonet/powerdns-php/issues",
+                "source": "https://github.com/exonet/powerdns-php/tree/v4.4.0"
+            },
+            "time": "2023-05-31T11:02:09+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",

@@ -17,8 +17,8 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api\V1',
     'middleware' => [
-        'cors',
-        'serializer',
+        //'cors',
+        //'serializer',
          //'serializer:array', // if you want to remove data wrap
         'api.throttle',
     ],
