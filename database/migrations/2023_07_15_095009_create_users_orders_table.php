@@ -20,9 +20,10 @@ class CreateUsersOrdersTable extends Migration
             $table->char("order_sn")->unique()->comment("order sn");
             $table->double("price", 8, 2)->comment("order price");
             $table->integer("counpons_id")->default(0)->comment("counpons id");
-            $table->timestamps();
             $table->index(["user_id"]);
             $table->index(["package_id"]);
+            $table->enum("status",\App\Enums\OrderStatusEnums::getValues())->default(\App\Enums\OrderStatusEnums::Option_0);
+            $table->timestamps();
         });
     }
 
