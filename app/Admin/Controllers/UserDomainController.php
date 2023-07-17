@@ -7,6 +7,9 @@ use Nicelizhi\Admin\Controllers\AdminController;
 use Nicelizhi\Admin\Form;
 use Nicelizhi\Admin\Grid;
 use Nicelizhi\Admin\Show;
+use Nicelizhi\Admin\Facades\Admin;
+use Exonet\Powerdns\Powerdns;
+use Exonet\Powerdns\RecordType;
 
 class UserDomainController extends AdminController
 {
@@ -31,6 +34,16 @@ class UserDomainController extends AdminController
         $grid->column('user_id', __('User id'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+
+
+
+        //Admin::user()->isAdministrator();
+        if(!Admin::user()->isAdministrator()){
+
+            $grid->model()->where("user_id", Admin::user()->id);
+        }
+
+        $grid->model()->orderBy("id", "desc");
 
         return $grid;
     }
@@ -63,8 +76,23 @@ class UserDomainController extends AdminController
     {
         $form = new Form(new UsersDomain());
 
-        $form->text('domain', __('Domain'));
-        $form->number('user_id', __('User id'));
+        $form->text('domain', __('Domain'))->creationRules(['required',"unique:users_domains"])->updateRules(['required', "unique:users_domains,domain,{{id}}"]);
+        $form->hidden('user_id', __('User id'))->default(Admin::user()->id);
+
+        //保存后回调
+        $form->saved(function ($form) {
+
+            $url = config("pdns.api_url");
+            $key = config("pdns.api_key");
+            $powerdns = new Powerdns($url, $key);
+
+            // Create a new zone.
+            $zone = $powerdns->createZone(
+                $form->model()->domain,
+                ['ns1.zylinkus.com.', 'ns2.zylinkus.com.']
+            );
+
+        });
 
         return $form;
     }
