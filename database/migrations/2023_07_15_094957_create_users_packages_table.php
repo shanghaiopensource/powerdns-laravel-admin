@@ -19,6 +19,7 @@ class CreateUsersPackagesTable extends Migration
             $table->integer("package_id")->default(0)->comment("package id");
             $table->date("start_at")->comment("package start date");
             $table->date("end_at")->comment("package end date");
+            $table->enum("status", \App\Enums\UserPackaesStatusEnums::getValues())->default(\App\Enums\UserPackaesStatusEnums::Option_0);
             $table->timestamps();
         });
     }
