@@ -15,6 +15,8 @@ class CreateUsersDomainsRecords extends Migration
     {
         Schema::create('users_domains_records', function (Blueprint $table) {
             $table->id();
+            $table->integer("domain_id");
+            $table->char('type',6);
             $table->timestamps(); //todo
         });
     }
