@@ -15,6 +15,12 @@ class CreateCounponsTable extends Migration
     {
         Schema::create('counpons', function (Blueprint $table) {
             $table->id();
+            $table->string("name")->comment("counpon name");
+            $table->double("price")->comment("counpon price");
+            $table->integer("number")->comment("counpon number");
+            $table->date("start_at")->comment("counpon start date");
+            $table->date("end_at")->comment("counpon end date");
+            $table->enum("status", \App\Enums\CounponsStatusEnums::getValues())->default(\App\Enums\CounponsStatusEnums::Option_0);
             $table->timestamps();
         });
     }
