@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "bensampo/laravel-enum": "^4.2",
         "darkaonline/l5-swagger": "^8.5",
         "dingo/api": "^3.0.0",
         "exonet/powerdns-php": "^4.4",
