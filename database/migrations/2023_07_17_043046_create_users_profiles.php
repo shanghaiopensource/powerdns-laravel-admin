@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersDomains extends Migration
+class CreateUsersProfiles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateUsersDomains extends Migration
      */
     public function up()
     {
-        Schema::create('users_domains', function (Blueprint $table) {
+        Schema::create('users_profiles', function (Blueprint $table) {
             $table->id();
-            $table->timestamps(); // todo
+            $table->integer("user_id");
+            $table->double("balance", 8,2); //todo
+            $table->timestamps();
         });
     }
 
@@ -26,6 +28,6 @@ class CreateUsersDomains extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_domains');
+        Schema::dropIfExists('users_profiles');
     }
 }
