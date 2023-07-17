@@ -13,4 +13,14 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
+    $router->resource('packages', PackageController::class);
+
+    $router->resource('counpons', CounponController::class);
+
+    $router->resource('user-counpons', UserCounponController::class);
+
+    $router->resource('user-orders', UserOrderController::class);
+
+    $router->resource('user-packages', UserPackageController::class);
+
 });
