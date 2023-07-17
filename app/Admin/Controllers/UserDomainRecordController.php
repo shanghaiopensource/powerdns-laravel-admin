@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\UsersDomainRecord;
+use App\Models\UsersDomainsRecord;
 use Nicelizhi\Admin\Controllers\AdminController;
 use Nicelizhi\Admin\Form;
 use Nicelizhi\Admin\Grid;
@@ -24,7 +24,7 @@ class UserDomainRecordController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new UsersDomainRecord());
+        $grid = new Grid(new UsersDomainsRecord());
 
 
 
@@ -39,7 +39,7 @@ class UserDomainRecordController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(UsersDomainRecord::findOrFail($id));
+        $show = new Show(UsersDomainsRecord::findOrFail($id));
 
 
 
@@ -53,7 +53,7 @@ class UserDomainRecordController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new UsersDomainRecord());
+        $form = new Form(new UsersDomainsRecord());
 
 
 

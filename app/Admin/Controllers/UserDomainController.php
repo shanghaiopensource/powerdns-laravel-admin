@@ -18,7 +18,7 @@ class UserDomainController extends AdminController
      *
      * @var string
      */
-    protected $title = 'UsersDomain';
+    protected $title = 'Domain';
 
     /**
      * Make a grid builder.
@@ -78,6 +78,14 @@ class UserDomainController extends AdminController
 
         $form->text('domain', __('Domain'))->creationRules(['required',"unique:users_domains"])->updateRules(['required', "unique:users_domains,domain,{{id}}"]);
         $form->hidden('user_id', __('User id'))->default(Admin::user()->id);
+
+        // 子表字段
+        $form->hasMany('records', function (Form\NestedForm $form) {
+            $form->text("name");
+            $form->text('type');
+            $form->text("value");
+            $form->text("ttl")->default(3600);
+        });
 
         $form->saving(function ($form) {
             //检查用户使用有资格创建域名信息
