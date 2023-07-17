@@ -79,6 +79,11 @@ class UserDomainController extends AdminController
         $form->text('domain', __('Domain'))->creationRules(['required',"unique:users_domains"])->updateRules(['required', "unique:users_domains,domain,{{id}}"]);
         $form->hidden('user_id', __('User id'))->default(Admin::user()->id);
 
+        $form->saving(function ($form) {
+            //检查用户使用有资格创建域名信息
+            
+        });
+
         //保存后回调
         $form->saved(function ($form) {
 
