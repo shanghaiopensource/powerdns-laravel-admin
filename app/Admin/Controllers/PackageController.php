@@ -79,7 +79,7 @@ class PackageController extends AdminController
         $form->text('description', __('Description'));
         $form->date('start_at', __('Start at'))->default(date('Y-m-d'));
         $form->date('end_at', __('End at'))->default(date('Y-m-d'));
-        $form->decimal('price', __('Price'));
+        $form->currency('price', __('Price'))->symbol('$');
         $form->text('status', __('Status'));
         $form->text('owner', __('Owner'));
         $form->text('rules', __('Rules'));
