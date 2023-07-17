@@ -17,6 +17,8 @@ class CreateTableCounponsCodes extends Migration
             $table->id();
             $table->integer("counpons_id")->comment("counpons id");
             $table->char("code", 10)->comment("code");
+            $table->integer("user_id");
+            $table->enum("status", \App\Enums\CounponsCodeStatusEnums::getValues())->default(\App\Enums\CounponsCodeStatusEnums::Option_0);
             $table->timestamps();
         });
     }
