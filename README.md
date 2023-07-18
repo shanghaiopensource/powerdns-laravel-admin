@@ -20,6 +20,12 @@ A PowerDNS web interface with advanced features.
 - Provides Packages for sales support
 - Provides Coupons for sales support
 
+
+## 截图
+
+![image](https://github.com/shanghaiopensource/powerdns-laravel-admin/assets/138437143/4e203765-f441-4102-8f5e-ae1e07fee250)
+
+
 ## Support
 
 please use https://github.com/shanghaiopensource/powerdns-laravel-admin/discussions
