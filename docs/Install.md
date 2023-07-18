@@ -80,5 +80,6 @@ L5_SWAGGER_GENERATE_ALWAYS=true
 
 ## Running
 ```
+composer update
 php artisan serve
 ```
