@@ -86,10 +86,15 @@ class UserDomainController extends AdminController
 
         // 子表字段
         $form->hasMany('records', function (Form\NestedForm $form) {
-            $form->text("name");
-            $form->text('type');
-            $form->text("value");
-            $form->text("ttl")->default(3600);
+                /*
+                $form->column('1/2', function($form){
+                    echo "hello";
+                });
+                */
+                $form->text("name", __('Value'));
+                $form->select('type')->options(\App\Enums\DomainRecordTypeEnums::getValues());
+                $form->text("value");
+                $form->text("ttl")->default(3600);
         });
 
         $form->saving(function ($form) {
