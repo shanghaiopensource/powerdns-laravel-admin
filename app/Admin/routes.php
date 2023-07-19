@@ -25,6 +25,6 @@ Route::group([
 
     $router->resource('users-domains', UserDomainController::class);
 
-    $router->resource('users-domain-records', UserDomainRecordController::class);
+    $router->resource('users-domains-records', UsersDomainRecordController::class);
 
 });

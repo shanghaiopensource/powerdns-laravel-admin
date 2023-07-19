@@ -45,6 +45,11 @@ class UserDomainController extends AdminController
 
         $grid->model()->orderBy("id", "desc");
 
+
+        $grid->actions(function ($actions) {
+            $actions->add(new \App\Admin\Actions\Domain\Records);
+        });
+
         return $grid;
     }
 

@@ -8,14 +8,14 @@ use Nicelizhi\Admin\Form;
 use Nicelizhi\Admin\Grid;
 use Nicelizhi\Admin\Show;
 
-class UserDomainRecordController extends AdminController
+class UsersDomainRecordController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'UsersDomainRecord';
+    protected $title = 'UsersDomainsRecord';
 
     /**
      * Make a grid builder.
@@ -26,7 +26,11 @@ class UserDomainRecordController extends AdminController
     {
         $grid = new Grid(new UsersDomainsRecord());
 
-
+        $grid->column('id', __('Id'));
+        $grid->column('domain_id', __('Domain id'))->filter();
+        $grid->column('type', __('Type'));
+        $grid->column('created_at', __('Created at'));
+        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
@@ -41,7 +45,11 @@ class UserDomainRecordController extends AdminController
     {
         $show = new Show(UsersDomainsRecord::findOrFail($id));
 
-
+        $show->field('id', __('Id'));
+        $show->field('domain_id', __('Domain id'));
+        $show->field('type', __('Type'));
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
 
         return $show;
     }
@@ -55,7 +63,8 @@ class UserDomainRecordController extends AdminController
     {
         $form = new Form(new UsersDomainsRecord());
 
-
+        $form->number('domain_id', __('Domain id'));
+        $form->text('type', __('Type'));
 
         return $form;
     }
