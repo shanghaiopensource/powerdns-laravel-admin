@@ -25,6 +25,9 @@ A PowerDNS web interface with advanced features.
 
 ![image](https://github.com/shanghaiopensource/powerdns-laravel-admin/assets/138437143/4e203765-f441-4102-8f5e-ae1e07fee250)
 
+![image](https://github.com/shanghaiopensource/powerdns-laravel-admin/assets/34465153/0fb01d98-27ea-4419-952f-3c28b5626f7f)
+
+
 
 ## Support
 
