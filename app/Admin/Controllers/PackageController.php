@@ -91,8 +91,7 @@ class PackageController extends AdminController
     }
 
     public function buy(Content $content,Request $request) {
-        $packages = Package::get();
-        //var_dump($packages);
+        $packages = Package::where("status", \App\Enums\PackaesStatusEnums::Option_1)->get();
         return $content->view("Package/buy", compact("packages"));
     }
 
@@ -111,6 +110,8 @@ class PackageController extends AdminController
                 }
             }
             //验证域名是否有用
+
+            
         }
         return $content->view("Package/buyNow", compact("package","domains", "package_id"));
     }

@@ -11,7 +11,7 @@ use BenSampo\Enum\Enum;
  */
 final class PackaesStatusEnums extends Enum
 {
-    const Option_0 =   0;
-    const Option_1 =   1;
-    const Option_2 =  2;
+    const Option_0 =   "0";
+    const Option_1 =   "1";
+    const Option_2 =   "2";
 }
