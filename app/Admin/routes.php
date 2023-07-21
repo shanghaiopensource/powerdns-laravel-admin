@@ -13,6 +13,8 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
+    $router->any('packages/buy/{package_id}', "PackageController@BuyNow");
+    $router->get('packages/buy', "PackageController@buy");
     $router->resource('packages', PackageController::class);
 
     $router->resource('counpons', CounponController::class);

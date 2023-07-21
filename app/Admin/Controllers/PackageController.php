@@ -7,6 +7,9 @@ use Nicelizhi\Admin\Controllers\AdminController;
 use Nicelizhi\Admin\Form;
 use Nicelizhi\Admin\Grid;
 use Nicelizhi\Admin\Show;
+use Nicelizhi\Admin\Layout\Content;
+use Illuminate\Http\Request;
+use Nicelizhi\Admin\Facades\Admin;
 
 class PackageController extends AdminController
 {
@@ -85,5 +88,30 @@ class PackageController extends AdminController
         $form->text('rules', __('Rules'));
 
         return $form;
+    }
+
+    public function buy(Content $content,Request $request) {
+        $packages = Package::get();
+        //var_dump($packages);
+        return $content->view("Package/buy", compact("packages"));
+    }
+
+    public function BuyNow($package_id, Content $content,Request $request) {
+        $package = Package::where("id", $package_id)->first();
+        $domains = \App\Models\UsersDomain::where("user_id", Admin::user()->id)->get();
+        if($request->isMethod('post')) {
+            $domain = $request->input("domain");
+            $coupon_code = $request->input("coupon_code");
+
+            //验证优惠券是否有效
+            if(!empty($coupon_code)) {
+                $coupon = \App\Models\CounponCode::where("code", $coupon_code)->first();
+                if(is_null($coupon)) {
+                    
+                }
+            }
+            //验证域名是否有用
+        }
+        return $content->view("Package/buyNow", compact("package","domains", "package_id"));
     }
 }
