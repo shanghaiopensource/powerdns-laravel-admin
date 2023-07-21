@@ -102,6 +102,7 @@ class PackageController extends AdminController
             $domain = $request->input("domain");
             $coupon_code = $request->input("coupon_code");
 
+
             //验证优惠券是否有效
             if(!empty($coupon_code)) {
                 $coupon = \App\Models\CounponCode::where("code", $coupon_code)->first();
@@ -110,6 +111,16 @@ class PackageController extends AdminController
                 }
             }
             //验证域名是否有用
+
+            $userOrder = \App\Models\UserOrder();
+            $userOrder->user_id = Admin::user()->id;
+            $userOrder->order_sn = date("YmdHis").mt_rand(1000, 9999);
+            $userOrder->package_id = $package_id;
+            $userOrder->price = $package->price;
+            $userOrder->status = \App\Enums\OrderStatusEnums::Option_0;
+            $userOrder->save();
+
+            // 扣用户的余额
 
             
         }
