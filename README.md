@@ -1,6 +1,6 @@
 # powerdns-laravel-admin
 
-A PowerDNS web interface with advanced features.
+A PowerDNS web interface with advanced features.Supports DNSCrypt, DoH, and DoT.
 
 #### Features:
 
